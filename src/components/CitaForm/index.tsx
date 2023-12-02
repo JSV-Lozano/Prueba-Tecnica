@@ -1,8 +1,6 @@
-type CitaFormProps = {
-  dia: string;
-  setDia: React.Dispatch<React.SetStateAction<string>>;
-  getCitas: () => void;
-};
+import { useState } from "react";
+import { useEspacios } from "../../hooks/useEspacios";
+
 type ListaDias = {
   value: string;
   text: string;
@@ -16,12 +14,17 @@ const listaDias: ListaDias[] = [
   { value: "viernes", text: "Viernes" },
 ];
 
-function Citaform({ getCitas, dia, setDia }: CitaFormProps): JSX.Element {
+function Citaform(): JSX.Element {
+  const [dia, setDia] = useState<string>("lunes");
+  const calculateAvailableSpaces = useEspacios();
+  const obtenerEspacios = () => {
+    calculateAvailableSpaces(dia);
+  };
   return (
     <section className="flex flex-col justify-center items-center w-full pt-4">
       <label
         htmlFor="Dias"
-        className="block mb-2 text-3xl font-bold text-gray-900"
+        className="block mb-2 text-4xl font-bold text-gray-900"
       >
         Selecciona un día
       </label>
@@ -42,8 +45,8 @@ function Citaform({ getCitas, dia, setDia }: CitaFormProps): JSX.Element {
       </select>
 
       <button
-        className="mt-2 text-2xl rounded-2xl bg-[#e1e1e17d] h-[40px] w-[100px] "
-        onClick={getCitas}
+        className="mt-2 text-3xl rounded-2xl bg-[#e1e1e17d] h-[40px] w-[100px] "
+        onClick={obtenerEspacios}
       >
         Consultar
       </button>

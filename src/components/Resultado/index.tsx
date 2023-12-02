@@ -1,12 +1,8 @@
-type ResultadoProps = {
-  espaciosDisponibles: number | string;
-  error: boolean;
-};
+import { useContext } from "react";
+import { GlobalState } from "../../Context";
 
-function Resultado({
-  espaciosDisponibles,
-  error,
-}: ResultadoProps): JSX.Element {
+function Resultado(): JSX.Element {
+  const { error, espacios } = useContext(GlobalState);
   return (
     <div className="pt-4">
       {error ? (
@@ -14,9 +10,9 @@ function Resultado({
           Hubo un problema{" "}
         </p>
       ) : (
-        espaciosDisponibles !== null && (
+        espacios !== null && (
           <p className="text-3xl font-bold rounded-2xl bg-[#e1e1e17d] h-[30px] w-[300px] flex justify-center items-center">
-            Espacios disponibles: {espaciosDisponibles}
+            Espacios disponibles: {espacios}
           </p>
         )
       )}
