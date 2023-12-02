@@ -25,8 +25,8 @@ function AñadirCita(): JSX.Element {
   } = useAñadirCita();
 
   return (
-    <form className="flex flex-col justify-center items-center w-full pt-4">
-      <h2 className="text-blue-500 text-5xl font-bold pb-3">
+    <form className="flex flex-col justify-center items-center pt-4 w-[500px] h-[50vh] rounded-lg shadow-shadow-form">
+      <h2 className="text-blue-500 text-4xl font-bold pb-3">
         Agenda una cita con nosotros
       </h2>
       <label

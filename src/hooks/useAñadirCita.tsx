@@ -1,5 +1,6 @@
 import { ChangeEvent, useContext, useState } from "react";
 import { GlobalState } from "../Context";
+import { useEspacios } from "./useEspacios";
 
 type AñadirCIta = {
   Day: string;
@@ -8,7 +9,8 @@ type AñadirCIta = {
 };
 
 function useAñadirCita() {
-  const { citas, setCitas } = useContext(GlobalState);
+  const { citas, setCitas, espacios } = useContext(GlobalState);
+  const calculateAvailableSpaces = useEspacios();
   const [añadirCita, setAñadirCita] = useState<AñadirCIta>({
     Day: "",
     Hour: "",
@@ -22,6 +24,11 @@ function useAñadirCita() {
     const inputTime = event.target.value;
     const minTime = event.target.min;
     const maxTime = event.target.max;
+    const { Day } = añadirCita;
+    console.log(minTime);
+    console.log(maxTime);
+    setSucces(false);
+    calculateAvailableSpaces(Day);
     setError(false);
     if (inputTime < minTime || inputTime > maxTime) {
       // Restringe la selección y restablece el valor si es necesario
@@ -60,9 +67,12 @@ function useAñadirCita() {
     event.preventDefault();
     setError(false);
     setSucces(false);
-
     const { Day, Duration, Hour } = añadirCita;
-
+    if (espacios <= 0) {
+      setError(true);
+      setMsgError("No tenemos espacio para ese día");
+      return;
+    }
     if (!Day || !Duration || !Hour) {
       setError(true);
       setMsgError("Faltan valores");
@@ -72,11 +82,11 @@ function useAñadirCita() {
     const horaExistente = citas.some((cita) => cita.Hour === Hour);
     //Si la cita coincide con la que se desea crear negar la creacion
     if (horaExistente) {
-    //Establecer error y mensaje de error
+      //Establecer error y mensaje de error
       setError(true);
       setMsgError("Esa hora no esta disponible");
     } else {
-    //Creacion de cita
+      //Creacion de cita
       setCitas([...citas, añadirCita]);
       setSucces(true);
     }
