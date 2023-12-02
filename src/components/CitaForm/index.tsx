@@ -11,7 +11,7 @@ type ListaDias = {
 const listaDias: ListaDias[] = [
   { value: "lunes", text: "Lunes" },
   { value: "martes", text: "Martes" },
-  { value: "miercoles", text: "Miércoles" },
+  { value: "miércoles", text: "Miércoles" },
   { value: "jueves", text: "Jueves" },
   { value: "viernes", text: "Viernes" },
 ];

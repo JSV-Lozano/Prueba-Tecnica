@@ -28,7 +28,7 @@ function useCita() {
       const citas = response.data;
       setCita(citas);
       const calculateAvailableSpaces = (day: string | null): number => {
-        // Verificaion de que cita está inicializado y no es nulo
+        // Verificación de que cita está inicializado y no es nulo
         if (!cita || !cita.length) {
           return 0;
         }
@@ -42,7 +42,7 @@ function useCita() {
         // Calcular el total de minutos ocupados dentro del horario de atención
         const occupiedMinutes = citaOnDay.reduce((total, appointment) => {
           // Crear objetos Date para la hora de inicio y fin de la cita
-          const startTime = new Date(`2023-01-01 ${appointment.Hour}`);
+          const startTime = new Date(`2023-01-01T${appointment.Hour}`);
           const endTime = new Date(
             startTime.getTime() + parseInt(appointment.Duration, 10) * 60000
           );
@@ -56,14 +56,16 @@ function useCita() {
           return total;
         }, 0);
 
-        // Calcular espacios disponibles, tomando el minimo de 30 minutos
-        const availableSpacesCount = Math.floor(
-          (totalAvailableMinutes - occupiedMinutes) / 30
-        );
+        // Calcular espacios disponibles en minutos
+        const availableSpacesMinutes = totalAvailableMinutes - occupiedMinutes;
+
+        // Redondear el resultado final al número entero más cercano
+        const availableSpacesCount = Math.floor(availableSpacesMinutes / 30);
 
         setEspacios(availableSpacesCount);
         return 0;
       };
+
       calculateAvailableSpaces(dia);
     } catch (error) {
       setError(true);
