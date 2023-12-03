@@ -33,7 +33,7 @@ const ListaCitas: React.FC = () => {
   }, []);
 
   return (
-    <section className="App w-full h-[94vh] flex flex-col justify-center items-center">
+    <section className="App w-full h-[94vh] flex flex-col justify-center items-center bg-[#131313]">
       {loading ? (
         <Loader />
       ) : (

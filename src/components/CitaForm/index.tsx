@@ -24,7 +24,7 @@ function Citaform(): JSX.Element {
     <section className="flex flex-col justify-center items-center w-full pt-4">
       <label
         htmlFor="Dias"
-        className="block mb-2 text-4xl font-bold text-gray-900"
+        className="block mb-2 text-4xl font-bold text-white"
       >
         Selecciona un día
       </label>
@@ -45,7 +45,7 @@ function Citaform(): JSX.Element {
       </select>
 
       <button
-        className="mt-2 text-3xl rounded-2xl bg-[#e1e1e17d] h-[40px] w-[100px] "
+        className="mt-2 text-3xl text-white rounded-2xl bg-[#e1e1e17d] h-[40px] w-[100px] "
         onClick={obtenerEspacios}
       >
         Consultar

@@ -25,13 +25,13 @@ function AñadirCita(): JSX.Element {
   } = useAñadirCita();
 
   return (
-    <form className="flex flex-col justify-center items-center pt-4 w-[500px] h-[50vh] rounded-lg shadow-shadow-form">
+    <form className="bg-[#1d1d1d] flex flex-col justify-center items-center pt-4 w-[500px] h-[50vh] rounded-lg shadow-shadow-form">
       <h2 className="text-blue-500 text-4xl font-bold pb-3">
         Agenda una cita con nosotros
       </h2>
       <label
         htmlFor="Dias"
-        className="block mb-2 text-4xl font-bold text-gray-900 pb-3"
+        className="block mb-2 text-4xl font-bold pb-3 text-white"
       >
         Selecciona un día
       </label>
@@ -52,7 +52,7 @@ function AñadirCita(): JSX.Element {
       </select>
       <label
         htmlFor="hora"
-        className="text-2xl font-semibold"
+        className="text-2xl font-semibold text-white"
       >
         Selecciona una hora(entre 9:00 y las 17:00):
       </label>
@@ -67,7 +67,7 @@ function AñadirCita(): JSX.Element {
       />
       <label
         htmlFor="duration"
-        className="text-2xl font-semibold"
+        className="text-2xl font-semibold text-white"
       >
         Duracion (Entre 30 a 90 minutos):
       </label>
@@ -82,7 +82,7 @@ function AñadirCita(): JSX.Element {
       />
       <input
         type="submit"
-        className="mt-2 text-2xl rounded-2xl bg-[#e1e1e17d] h-[40px] w-[100px] "
+        className="mt-2 text-2xl rounded-2xl bg-[#e1e1e17d] h-[40px] w-[100px] text-white cursor-pointer "
         onClick={createCita}
       />
       {error ? (
