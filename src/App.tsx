@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ListaCitas } from "./views/listaCitas";
 import { Layaout } from "./components/Layaout";
-import { AgregarCitas } from "./views/agregarCita";
+import { Home } from "./views/home";
+import { ReservarCita } from "./views/reservar";
 import GlobalContext from "./Context";
 
 function App(): JSX.Element {
@@ -11,12 +11,12 @@ function App(): JSX.Element {
         <Layaout>
           <Routes>
             <Route
-              path="/"
-              element={<ListaCitas />}
+              path="/home"
+              element={<Home />}
             />
             <Route
-              path="/agregar-cita"
-              element={<AgregarCitas />}
+              path="/reservar"
+              element={<ReservarCita />}
             />
           </Routes>
         </Layaout>

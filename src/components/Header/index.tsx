@@ -1,40 +1,36 @@
-import { Link } from "react-router-dom";
-
-type LinksTypes = {
-  text: string;
-  link: string;
-};
-const Links: LinksTypes[] = [
-  {
-    text: "Consultar por espacios",
-    link: "/",
-  },
-  {
-    text: "Reservar cita",
-    link: "/agregar-cita",
-  },
-];
+import { Link, useLocation } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 function Header(): JSX.Element {
+  const { pathname } = useLocation();
   return (
-    <header className="w-full bg-[#131313] h-[50px] rounded-b-[10px] shadow-lg shadow-[#00000036]">
-      <nav className="flex h-full justify-between items-center text-2xl">
-        <h2 className="pl-4 font-bold text-blue-500 text-4xl md:text-5xl md:pl-40">
-          {"<"}TuCitaYa{"/>"}
-        </h2>
-        <ul className="flex w-[70%] justify-around md:w-[40%]">
-          {Links.map((link) => (
-            <li key={link.text}>
-              <Link
-                to={link.link}
-                className="text-white hover:text-[#1395ff] ease-in duration-300 p-2 lg:p-4 rounded-2xl font-semibold text-xl md:text-2xl lg:text-3xl"
-              >
-                {link.text}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+    <header className="flex items-center justify-between lg:justify-normal mt-60 lg:mt-[300px] 2xl:mt-0 ">
+      <div className="flex items-center md:mr-56">
+        <img
+          className="w-[30%]"
+          src={logo}
+          alt="logo"
+        />
+        <h1 className="flex text-5xl font-bold">
+          <p className="text-[#35f8ff]">TuCita</p>
+          Ya
+        </h1>
+      </div>
+      {pathname === "/home" ? (
+        <Link
+          to="/reservar"
+          className="text-2xl md:text-3xl border p-3 rounded-xl text-center"
+        >
+          Reservar Cita
+        </Link>
+      ) : (
+        <Link
+          to="/home"
+          className="text-2xl md:text-3xl border p-3 rounded-xl text-center"
+        >
+          Inicio
+        </Link>
+      )}
     </header>
   );
 }

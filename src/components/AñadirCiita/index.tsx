@@ -25,18 +25,18 @@ function AñadirCita(): JSX.Element {
   } = useAñadirCita();
 
   return (
-    <form className="bg-[#1d1d1d] flex flex-col justify-center items-center pt-4 w-[500px] h-[50vh] rounded-lg shadow-shadow-form">
-      <h2 className="text-blue-500 text-4xl font-bold pb-3">
+    <form className="flex flex-col justify-center items-center pt-4 w-[100%] h-[50vh] rounded-lg text-center text-white">
+      <h2 className="text-[#35f8ff] text-4xl font-bold mb-10">
         Agenda una cita con nosotros
       </h2>
       <label
         htmlFor="Dias"
-        className="block mb-2 text-4xl font-bold pb-3 text-white"
+        className="block mb-7 text-4xl font-bold pb-3 text-white"
       >
         Selecciona un día
       </label>
       <select
-        className="w-[50%] bg-gray-50 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
+        className="w-[90%] bg-gray-50 border border-gray-300 text-gray-900 text-2xl rounded-lg block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white mb-10"
         id="Dias"
         name="Day"
         onChange={handleChangeDia}
@@ -52,12 +52,12 @@ function AñadirCita(): JSX.Element {
       </select>
       <label
         htmlFor="hora"
-        className="text-2xl font-semibold text-white"
+        className="text-3xl mb-7 font-semibold"
       >
         Selecciona una hora(entre 9:00 y las 17:00):
       </label>
       <input
-        className="text-4xl rounded-2xl border-solid border-2 border-[#000000ab] p-1 mt-2 mb-2"
+        className="w-[90%] bg-gray-50 border border-gray-300 text-gray-900 text-2xl rounded-lg p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white mb-10"
         type="time"
         id="hora"
         name="Hour"
@@ -67,12 +67,12 @@ function AñadirCita(): JSX.Element {
       />
       <label
         htmlFor="duration"
-        className="text-2xl font-semibold text-white"
+        className="text-3xl mb-8 font-semibold"
       >
         Duracion (Entre 30 a 90 minutos):
       </label>
       <input
-        className="p-3 text-2xl w-[30%] border-2 rounded-xl mt-2 mb-2"
+        className="w-[90%] bg-gray-50 border border-gray-300 text-gray-900 text-2xl rounded-lg p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 mb-4"
         id="duration"
         name="Duration"
         type="number"
@@ -82,7 +82,7 @@ function AñadirCita(): JSX.Element {
       />
       <input
         type="submit"
-        className="mt-2 text-2xl rounded-2xl bg-[#e1e1e17d] h-[40px] w-[100px] text-white cursor-pointer "
+        className="mt-2 text-3xl rounded-2xl border border-white h-[40px] w-[100px] text-white cursor-pointer "
         onClick={createCita}
       />
       {error ? (
