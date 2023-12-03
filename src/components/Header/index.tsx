@@ -3,6 +3,7 @@ import logo from "../../assets/logo.png";
 
 function Header(): JSX.Element {
   const { pathname } = useLocation();
+  console.log(pathname);
   return (
     <header className="flex items-center justify-between lg:justify-normal mt-60 lg:mt-[300px] 2xl:mt-0 ">
       <div className="flex items-center md:mr-56">
@@ -16,7 +17,7 @@ function Header(): JSX.Element {
           Ya
         </h1>
       </div>
-      {pathname === "/home" ? (
+      {pathname === "/" ? (
         <Link
           to="/reservar"
           className="text-2xl md:text-3xl border p-3 rounded-xl text-center"
@@ -25,7 +26,7 @@ function Header(): JSX.Element {
         </Link>
       ) : (
         <Link
-          to="/home"
+          to="/"
           className="text-2xl md:text-3xl border p-3 rounded-xl text-center"
         >
           Inicio

@@ -11,7 +11,7 @@ function App(): JSX.Element {
         <Layaout>
           <Routes>
             <Route
-              path="/home"
+              path="/"
               element={<Home />}
             />
             <Route
